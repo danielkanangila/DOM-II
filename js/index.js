@@ -1,4 +1,5 @@
 // Add mouseover effect on nav items
+// and stop nav items from refreshing the page
 document.querySelectorAll('nav a')
     .forEach((item, index) => {
         let navLinkSpan = document.createElement('span');
@@ -9,10 +10,11 @@ document.querySelectorAll('nav a')
         item.addEventListener('mouseover', () => {
             navLinkSpan = document.getElementById(id);
             navLinkSpan.className = 'nav-link-hover-show';
-        })
+        });
         item.addEventListener('mouseout', () => {
             navLinkSpan = document.getElementById(id);
             navLinkSpan.className = 'nav-link-hover-hide';
-        })
+        });
+        item.addEventListener('click', e => e.preventDefault());
     });
 
