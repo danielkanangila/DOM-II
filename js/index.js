@@ -18,3 +18,7 @@ document.querySelectorAll('nav a')
         item.addEventListener('click', e => e.preventDefault());
     });
 
+// Added from to the dom
+const formTemplate = document.getElementById('formTemplate');
+const formTemplateContent = formTemplate.content;
+document.body.appendChild(formTemplateContent);

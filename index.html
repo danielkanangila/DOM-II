@@ -82,6 +82,35 @@
     </section>
   </div><!-- container -->
 
+  <template id="formTemplate">
+    <div id="vacationForm" class="display-none">
+      <div class="filter">
+          <button id="close" class="btn-close">&times;</button>
+      </div>
+      <form action="#">
+          <h4 id="classTitle" class="title"></h4>
+          <div class="field">
+              <input type="text" name="fullname" id="fullname" placeholder="Dan Joe" required>
+              <label for="fullname">Name</label>
+          </div>
+          <div class="field">
+              <input type="text" name="email" id="email" placeholder="dan.joe@email.com" required>
+              <label for="email">Email</label>
+          </div>
+          <div class="field">
+              <input type="text" name="phone" id="phone" placeholder="000-000-0000" required>
+              <label for="phone">Phone (Us Only)</label>
+          </div>
+          <div class="field">
+              <textarea name="instruction" id="instruction" placeholder="Your message here!"></textarea>
+              <label for="instruction">Instructions</label>
+          </div>
+
+          <button id="submitBooking" class="btn-primary">Submit</button>
+      </form>
+  </div>
+  </template>
+
   <footer class="footer">
     <p>Copyright Fun Bus 2018</p>
   </footer>
