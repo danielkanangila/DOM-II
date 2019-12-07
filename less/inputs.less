@@ -23,10 +23,14 @@ textarea {
     border-radius: 0;
     padding: 5px;
     cursor: text;
+    outline: 0;
 
     &:focus {
-        outline: 0;
         border-bottom: 1px solid @input-focus-color;
+    }
+
+    &.error {
+        border-bottom-color: red;
     }
 
     /** Overide the placeholder by the label  **/

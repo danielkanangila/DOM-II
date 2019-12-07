@@ -264,12 +264,16 @@ textarea {
   border-radius: 0;
   padding: 5px;
   cursor: text;
+  outline: 0;
   /** Overide the placeholder by the label  **/
 }
 input:focus,
 textarea:focus {
-  outline: 0;
   border-bottom: 1px solid #0f44e0;
+}
+input.error,
+textarea.error {
+  border-bottom-color: red;
 }
 input:placeholder-shown + label,
 textarea:placeholder-shown + label {

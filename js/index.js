@@ -47,3 +47,45 @@ document.querySelector('#close').addEventListener('click', () => {
     document.body.classList.remove('overflow-hidden');
 });
 
+// Adding keydown event on input to validate form
+let errorStatus = true;
+const validator = {
+    validateName(strToValidate) {
+        return /^[a-zA-Z ]{5,30}/.test(strToValidate);  
+    },
+
+    validateEmail(emailToValidate) {
+        let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(emailToValidate);
+    },
+    validatePhoneNumber(phoneToValidate) {
+        let re = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+        return re.test(phoneToValidate);
+    },
+    validate(type, value) {
+        switch(type) {
+            case 'fullname':
+                return this.validateName(value);
+            case 'email':
+                return this.validateEmail(value);
+            case 'phone':
+                return this.validatePhoneNumber(value);
+            default:
+        }
+    }
+}
+
+formContainer.querySelectorAll('form input')
+.forEach(item => {
+    item.addEventListener('keydown', e => {
+        if (validator.validate(e.target.name, e.target.value)) {
+            errorStatus = false;
+            item.classList.remove('error');
+        } else {
+            errorStatus = true;
+            item.classList.add('error');
+        }
+    })
+})
+
+
