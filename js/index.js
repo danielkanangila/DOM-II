@@ -22,3 +22,28 @@ document.querySelectorAll('nav a')
 const formTemplate = document.getElementById('formTemplate');
 const formTemplateContent = formTemplate.content;
 document.body.appendChild(formTemplateContent);
+
+// Added, handling click event on signup btn
+// and scrolling to top
+let targetEl = null;
+const formContainer = document.getElementById('vacationFormContainer');
+document.querySelectorAll('.destination .btn')
+.forEach(item => {
+    const formTitle = item.parentElement.querySelector('h4').textContent;
+    targetEl = item.parentElement;
+    item.addEventListener('click', () => {
+        document.body.className = 'overflow-hidden';
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+        formContainer.querySelector('h4').textContent = formTitle;
+        formContainer.className = 'vacation-form';
+    });
+});
+
+// Close form cotainer and scroll to last element position
+document.querySelector('#close').addEventListener('click', () => {
+    formContainer.classList = 'display-none';
+    targetEl.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    document.body.classList.remove('overflow-hidden');
+});
+
