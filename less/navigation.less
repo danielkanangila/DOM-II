@@ -24,7 +24,7 @@
     }
 
     .nav {
-      width: 350px;
+      width: 370px;
       display: flex;
       justify-content: space-evenly;
 
@@ -35,9 +35,31 @@
       
       
       a {
+        position: relative;
         font-size: 1.6rem;
         color: @font-color;
         text-decoration: none;
+        padding: 15px 20px;
+        transition: 1s;
+        z-index: 100;
+        
+        .nav-link-hover-show {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          opacity: 1;
+          transition: opacity 1000ms;
+          width: 100%;
+          height: 100%; 
+          background-color: #ccc;
+          z-index: -5;
+        }
+
+        .nav-link-hover-hide {
+          opacity: 0;
+          transition: opacity 1000ms;
+        }
       }
     }
   }
