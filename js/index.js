@@ -89,3 +89,29 @@ formContainer.querySelectorAll('form input')
 })
 
 
+// Gsap
+
+gsap.from('.logo-heading', {opacity: 0, duration: 1, y: 20})
+gsap.from('nav', {
+    opacity: 0, 
+    duration: 1, 
+    y: -20,
+    delay: 0.8
+});
+gsap.from('.intro-img', {
+    opacity: 0,
+    duration: 1,
+    x: 30,
+    delay: 0.9
+});
+gsap.from('.anime2', {
+    opacity: 0,
+    duration: 1,
+    delay: 0.9,
+    x: -30,
+})
+gsap.from('.destination', {
+    opacity: 0, 
+    duration: 1, 
+    y: 20
+})
