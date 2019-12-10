@@ -1,0 +1,76 @@
+form {
+    margin: 2rem 0;
+}
+
+.field {
+    display: flex;
+    flex-flow: column-reverse;
+    margin-bottom: 1rem;
+}
+
+label, input {
+    transition: all 0.2s;
+    touch-action: manipulation;
+}
+
+input,
+textarea {
+    font-size: 1.5rem;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    font-family: inherit;
+    appearance: none;
+    border-radius: 0;
+    padding: 5px;
+    cursor: text;
+    outline: 0;
+
+    &:focus {
+        border-bottom: 1px solid @input-focus-color;
+    }
+
+    &.error {
+        border-bottom-color: red;
+    }
+
+    /** Overide the placeholder by the label  **/
+    &:placeholder-shown + label {
+        cursor: text;
+        max-width: 66.66%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        transform-origin: left bottom;
+        transform: translate(0, 2.125rem) scale(1.5);
+        font-size: 0.8rem;
+        padding: 0 5px;
+    }
+
+    // Show the place holder when the input is focused
+    &:focus::-webkit-input-placeholder {
+        opacity: 1;
+    }
+
+    // Remove the label transform when the input is focused
+    &:not(:placeholder-shown) + label,
+    &:focus + label {
+        transform: translate(0, 0) scale(1);
+        cursor: pointer;
+        color: @input-focus-color;
+    }
+}
+
+textarea {
+    height: 150px;
+    border: 1px solid #ccc;
+}
+
+label {
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+}
+
+// By defautlt the placehoder should be transparent and inherit the transition
+::-webkit-input-placeholder {
+    opacity: 0;
+    transition: inherit;
+}
